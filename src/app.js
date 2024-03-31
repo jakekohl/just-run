@@ -1,0 +1,46 @@
+var setPrototypeOf = require('setprototypeof')
+var methods = require('methods');
+var Router = require('./router');
+var Layer = require('./layer');
+var slice = Array.prototype.slice;
+var http = require('http');
+
+var app = exports = module.exports = {};
+
+app.init = function() {
+    this.cache = {};
+    this.engines = {};
+    this.settings = {}
+
+    //for holding the application router
+    this._router = undefined;
+};
+
+app.lazyrouter = function lazyrouter() {
+  if(!this._router) {
+      this._router = new Router({})
+  }
+};
+
+
+app.listen = function listen() {
+  var server = http.createServer(this);
+  return server.listen.apply(server, arguments);
+};
+
+app.handle = function handle(req, res, callback) {
+  var router = this._router;
+
+  router.handle(req, res);
+};
+
+methods.forEach(function (method){
+  app[method] = function(path) {
+      this.lazyrouter()
+
+      var route = this._router.route(path);
+
+      route[method].apply(route, slice.call(arguments, 1));
+      return this;
+  }
+});

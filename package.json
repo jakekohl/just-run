@@ -2,9 +2,10 @@
   "name": "just-run",
   "version": "1.0.0",
   "description": "Frontend and Backend of the TOBENAMED app",
-  "main": "./app.js",
+  "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node index.js"
   },
   "repository": {
     "type": "git",
