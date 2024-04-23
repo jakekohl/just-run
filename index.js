@@ -8,7 +8,7 @@ app.get('/', (req, res,next) => {
 
 
 app.get('/', (req, res) => {
-    res.json({hello: 'world'})
+    res.sendFile(__dirname + '/website/dashboard.html');
 });
 
 app.post('/post',(req,res) => {
