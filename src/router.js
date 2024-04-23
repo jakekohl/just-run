@@ -1,6 +1,6 @@
 var setPrototypeOf = require('setprototypeof');
 var Route = require('./route');
-var Layer = require('./layer');
+var Layer = require('./Layer');
 var parseUrl = require('parseurl');
 
 var proto = module.exports = function(options) {
@@ -17,7 +17,7 @@ var proto = module.exports = function(options) {
     router.caseSensitive = opts.caseSensitive;
     router.mergeParams = opts.mergeParams;
     router.strict = opts.strict;
-    router.stack = []; //really important property
+    router.stack = [];
 
     return router;
 };
@@ -33,6 +33,15 @@ proto.route = function route(path) {
 
     return route;
 };
+
+proto.use = function use(fn) {
+    var layer = new Layer('/', {}, fn);
+
+    layer.route = undefined;
+    this.stack.push(layer);
+
+    return this;
+}
 
 proto.handle = function handle(req, res, out) {
     var self = this;
@@ -64,23 +73,10 @@ proto.handle = function handle(req, res, out) {
 
             route.stack[0].handle_request(req, res, next);
         }
-    }
-}
 
-proto.use = function use(fn) {
-    var layer = new Layer('/', {}, fn);
-
-    layer.route = undefined;
-    this.stack.push(layer);
-
-    return this;
-}
-
-function matchLayer(layer, path) {
-    try {
-        return layer.match(path);
-    } catch (err) {
-        return err;
+        if(match) {
+            layer.handle_request(req, res, next);
+        }
     }
 }
 
@@ -89,5 +85,13 @@ function getPathname(req) {
         return parseUrl(req).pathname;
     } catch (err) {
         return undefined;
+    }
+}
+
+function matchLayer(layer, path) {
+    try {
+        return layer.match(path);
+    } catch (err) {
+        return err;
     }
 }
