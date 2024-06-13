@@ -1,3 +1,0 @@
-# Backend Technologies
-
-# Frontend Technologies
