@@ -15,7 +15,7 @@ Just getting started
 * Run npm install
 
 ```sh
-git clone
+git clone https://github.com/jakekohl/just-run.git
 nvm install v22.3.0
 npm install
 ``` 
