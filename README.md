@@ -7,13 +7,23 @@ Host the codebase for the [TO BE NAMED] app
 I was not very satisfied that there is a simple trainingpeaks like competitor that is outside of the main wearable ecosystems for running, so I am building my own that doesn't cost as much as trainingpeaks does.
 
 ## Current Features
-
+Just getting started
 
 # Getting Started
+* Clone the repository
+* Ensure you're running node v22.3.0 (npm v10.8.1)
+* Run npm install
+
+```sh
+git clone
+nvm install v22.3.0
+npm install
+``` 
 
 # Roadmap
 
 # Contribute
+If you're interested in collaboration, please reach out to me directly and I can share the general approach I am taking on this personal project.
 
 # Special Thanks
 Thanks to [antsmartin](https://github.com/antsmartian) for providing [this tutorial on building an express server](https://github.com/antsmartian/lets-build-express/tree/master) for helping me learn and get started quickly!
