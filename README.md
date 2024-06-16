@@ -27,4 +27,4 @@ TBD
 If you're interested in collaboration, please reach out to me directly and I can share the general approach I am taking on this personal project.
 
 # Special Thanks
-TBD
+Thanks to [antsmartin](https://github.com/antsmartian) for providing [this tutorial on building an express server](https://github.com/antsmartian/lets-build-express/tree/master) for helping me learn and get started quickly!
