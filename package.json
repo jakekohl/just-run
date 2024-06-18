@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Frontend and Backend of the TOBENAMED app",
   "scripts": {
-    "start": "doppler run --config prd node ./index.js",
-    "dev": "doppler run --config dev node ./index.js",
+    "dev": "node ./index.js",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run"
   },
