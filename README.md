@@ -9,6 +9,9 @@ I was not very satisfied that there is a simple trainingpeaks like competitor th
 ## Current Features
 Just getting started
 
+## Test Results
+[![just-run](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/feqa7o/main&style=flat&logo=cypress)](https://cloud.cypress.io/projects/feqa7o/runs)
+
 # Getting Started
 * Clone the repository
 * Ensure you're running node v22.3.0 (npm v10.8.1)
