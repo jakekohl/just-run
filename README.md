@@ -24,7 +24,7 @@ npm install
 ``` 
 
 # Roadmap
-TBD 
+[Details on active development can be found here](https://github.com/users/jakekohl/projects/1).
 
 # Contribute
 If you're interested in collaboration, please reach out to me directly and I can share the general approach I am taking on this personal project.
