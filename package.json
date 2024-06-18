@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Frontend and Backend of the TOBENAMED app",
   "scripts": {
+    "start": "node ./index.js",
     "dev": "node ./index.js",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run"
