@@ -25,7 +25,7 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Start application
-        run: npm run start &
+        run: npm run dev &
       - name: Wait for application to start
         run: |
           timeout=0
