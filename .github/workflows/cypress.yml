@@ -16,14 +16,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 21.6.1
+      - name: Install dependencies
+        run: npm ci
+      - name: Build application
+        run: npm run build
+      - name: Start application
+        run: npm run start &
+      - name: Wait for application to start
+        run: |
+          timeout=0
+          until curl --output /dev/null --silent --head --fail http://localhost:8080; do
+            if [[ $timeout -gt 30 ]]; then
+              echo "Application failed to start"
+              exit 1
+            fi
+            echo "Waiting for application to start..."
+            sleep 2
+            timeout=$((timeout+1))
+          done
       - name: Cypress run
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
-          # Starts web server for E2E tests - replace with your own server invocation
-          # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
-          start: npm run dev
-          wait-on: 'http://localhost:3000' # Waits for above
           # Records to Cypress Cloud
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: true
