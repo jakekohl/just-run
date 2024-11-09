@@ -24,10 +24,9 @@ npm install
 ``` 
 
 # Roadmap
-[Details on active development can be found here](https://github.com/users/jakekohl/projects/1).
+tbd
 
 # Contribute
 If you're interested in collaboration, please reach out to me directly and I can share the general approach I am taking on this personal project.
 
 # Special Thanks
-Thanks to [antsmartin](https://github.com/antsmartian) for providing [this tutorial on building an express server](https://github.com/antsmartian/lets-build-express/tree/master) for helping me learn and get started quickly!
