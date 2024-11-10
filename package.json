@@ -1,6 +1,6 @@
 {
   "name": "just-run",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Frontend and Backend of the TOBENAMED app",
   "type": "module",
   "scripts": {
@@ -8,8 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
-    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e --headless --browser chrome'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e --browser chrome'",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/jakekohl/just-run#readme",
   "dependencies": {
     "doppler": "^1.0.0",
+    "git-rev-sync": "^3.0.2",
     "pinia": "^2.2.6",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"

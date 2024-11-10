@@ -1,5 +1,7 @@
+const baseUrl = Cypress.env('appUrls').baseUrl
+
 describe('Smoke Tests for PR requests', () => {
-  it('should load the page', () => {
-    cy.visit('http://localhost:8080').its('status').should('eq', 200)
+  it('should load the ping page', () => {
+    cy.ping().its('status').should('eq', 200)
   })
 })

@@ -25,19 +25,7 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Start application
-        run: npm run start &
-      - name: Wait for application to start
-        run: |
-          timeout=0
-          until curl --output /dev/null --silent --head --fail http://localhost:8080; do
-            if [[ $timeout -gt 30 ]]; then
-              echo "Application failed to start"
-              exit 1
-            fi
-            echo "Waiting for application to start..."
-            sleep 2
-            timeout=$((timeout+1))
-          done
+        run: npm run preview &
       - name: Cypress run
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
