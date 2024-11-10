@@ -25,7 +25,7 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Start application
-        run: npm run preview
+        run: npm run preview &
       - name: Cypress run
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
